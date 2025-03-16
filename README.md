@@ -4,7 +4,7 @@
 
 ## 📝 Overview
 
-This project is my battleye HWID spoofer driver, it wipes hardware devices' serial numbers.<br>
+This is my own battleye HWID spoofer driver, it wipes hardware devices' serial numbers.<br>
 The driver still works on both windows 10 and 11 as of writing this.
 
 However, I want to emphasize that doing this is against battleye's TOS.<br>
@@ -144,8 +144,8 @@ flowchart TD
 	PatternScan --> Found{Pattern found?}
 	Found -->|No| FreeAndReturn[Free resources and return]
 	
-	Found -->|Yes| GetSMBIOSAddr[Get SMBIOS physical address]
-	GetSMBIOSAddr --> MapMemory[Map SMBIOS to virtual memory]
+	Found -->|Yes| GetSMBIOSAddr[Get physical addr]
+	GetSMBIOSAddr --> MapMemory[Map to virtual memory]
 	
 	MapMemory --> LoopEntries{For each SMBIOS entry}
 	LoopEntries -->|Type != 1 and Type != 2| NextEntry[Move to next entry]
@@ -170,10 +170,10 @@ The pattern corresponds to specific x86-64 assembly instructions that reference 
 The assembly byte sequence it looks for is as follows:
 
 ```asm
-MOV RCX, [RIP + offset]		; Load a global pointer
-TEST RCX, RCX				; Check if it's NULL
-JZ location					; Jump if NULL
-MOV EDX, [RIP + offset]		; Load value
+MOV RCX, [RIP + offset]     ; Load a global pointer
+TEST RCX, RCX               ; Check if it's NULL
+JZ location                 ; Jump if NULL
+MOV EDX, [RIP + offset]     ; Load value
 ```
 
 This effectively locates the SMBIOS' relative address in virtual memory.
@@ -233,14 +233,11 @@ flowchart TD
 	Start([Start: TMPHandler]) --> GetIOCTL[Get IOCTL Code from IRP]
 	GetIOCTL --> CheckIOCTL{Check IOCTL Code}
 	
-	CheckIOCTL -->|TPM Operation IOCTLs| TPMOp[Set Status: DEVICE_NOT_READY]
-	TPMOp --> CompleteRequest[Complete IRP]
-	CompleteRequest --> ReturnDNR[Return STATUS_DEVICE_NOT_READY]
+	CheckIOCTL -->|TPM Operation IOCTLs| TPMOp[DEVICE_NOT_READY]
 	
-	CheckIOCTL -->|Other IOCTLs| OrigHandler[Call original TPM handler]
-	OrigHandler --> ReturnOrig[Return result from original handler]
+	CheckIOCTL -->|Other IOCTLs| ReturnOrig[Original TPM handler]
 	
-	ReturnDNR --> End([End])
+	TPMOp --> End([End])
 	ReturnOrig --> End
 ```
 
@@ -287,22 +284,17 @@ flowchart TD
 	Start([Start: DiskHandler]) --> GetStack[Get IO Stack Location]
 	GetStack --> CheckBuffer{Input Buffer Length < 6?}
 	
-	CheckBuffer -->|Yes| OrigHandler[Call original disk handler]
+	CheckBuffer -->|Yes| ReturnOrig[Original disk handler]
 	CheckBuffer -->|No| CheckIOCTL{Check IOCTL Code}
 	
-	CheckIOCTL -->|General Disk Info IOCTLs| DiskInfo[Set Status: DEVICE_NOT_CONNECTED]
-	DiskInfo --> CompleteRequest1[Complete IRP]
-	CompleteRequest1 --> ReturnDNC[Return STATUS_DEVICE_NOT_CONNECTED]
+	CheckIOCTL -->|General Disk Info IOCTLs| DiskInfo[DEVICE_NOT_CONNECTED]
 	
-	CheckIOCTL -->|SMART Operation IOCTLs| SmartOp[Set Status: INVALID_DEVICE_REQUEST]
-	SmartOp --> CompleteRequest2[Complete IRP]
-	CompleteRequest2 --> ReturnIDR[Return STATUS_INVALID_DEVICE_REQUEST]
+	CheckIOCTL -->|SMART Operation IOCTLs| SmartOp[INVALID_DEVICE_REQUEST]
 	
-	CheckIOCTL -->|Other IOCTLs| OrigHandler
-	OrigHandler --> ReturnOrig[Return from original handler]
+	CheckIOCTL -->|Other IOCTLs| ReturnOrig
 	
-	ReturnDNC --> End([End])
-	ReturnIDR --> End
+	DiskInfo --> End([End])
+	SmartOp --> End
 	ReturnOrig --> End
 ```
 
