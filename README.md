@@ -144,7 +144,7 @@ flowchart TD
 	PatternScan --> Found{Pattern found?}
 	Found -->|No| FreeAndReturn[Free resources and return]
 	
-	Found -->|Yes| GetSMBIOSAddr[Get physical addr]
+	Found -->|Yes| GetSMBIOSAddr[Get physical address]
 	GetSMBIOSAddr --> MapMemory[Map to virtual memory]
 	
 	MapMemory --> LoopEntries{For each SMBIOS entry}
