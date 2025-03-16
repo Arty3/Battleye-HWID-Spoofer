@@ -1,0 +1,62 @@
+;
+; Battleye-HWID-Spoofer-Driver.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System ; TODO: specify appropriate Class
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318} ; TODO: specify appropriate ClassGuid
+Provider    = %ManufacturerName%
+CatalogFile = Battleye-HWID-Spoofer-Driver.cat
+DriverVer   = ; TODO: set DriverVer in stampinf property pages
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+Battleye-HWID-Spoofer-Driver.sys = 1,,
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...16299 ; %13% support introduced in build 16299
+
+[Standard.NT$ARCH$.10.0...16299]
+%Battleye-HWID-Spoofer-Driver.DeviceDesc% = Battleye-HWID-Spoofer-Driver_Device, Root\Battleye-HWID-Spoofer-Driver ; TODO: edit hw-id
+
+[Battleye-HWID-Spoofer-Driver_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+Battleye-HWID-Spoofer-Driver.sys
+
+;-------------- Service installation
+[Battleye-HWID-Spoofer-Driver_Device.NT.Services]
+AddService = Battleye-HWID-Spoofer-Driver,%SPSVCINST_ASSOCSERVICE%, Battleye-HWID-Spoofer-Driver_Service_Inst
+
+; -------------- Battleye-HWID-Spoofer-Driver driver install sections
+[Battleye-HWID-Spoofer-Driver_Service_Inst]
+DisplayName    = %Battleye-HWID-Spoofer-Driver.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %13%\Battleye-HWID-Spoofer-Driver.sys
+
+[Battleye-HWID-Spoofer-Driver_Device.NT.Wdf]
+KmdfService = Battleye-HWID-Spoofer-Driver, Battleye-HWID-Spoofer-Driver_wdfsect
+
+[Battleye-HWID-Spoofer-Driver_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+DiskName = "Battleye-HWID-Spoofer-Driver Installation Disk"
+Battleye-HWID-Spoofer-Driver.DeviceDesc = "Battleye-HWID-Spoofer-Driver Device"
+Battleye-HWID-Spoofer-Driver.SVCDESC = "Battleye-HWID-Spoofer-Driver Service"

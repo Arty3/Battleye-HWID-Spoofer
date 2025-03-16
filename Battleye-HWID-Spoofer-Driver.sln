@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Battleye-HWID-Spoofer-Driver", "Battleye-HWID-Spoofer-Driver\Battleye-HWID-Spoofer-Driver.vcxproj", "{BAE77E15-9878-4F82-9128-41F9B460B7BB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Visualizer", "Visualizer\Visualizer.vcxproj", "{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Debug|ARM64.Build.0 = Debug|ARM64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Debug|x64.ActiveCfg = Debug|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Debug|x64.Build.0 = Debug|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Debug|x64.Deploy.0 = Debug|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Debug|x86.ActiveCfg = Debug|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Debug|x86.Build.0 = Debug|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Debug|x86.Deploy.0 = Debug|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Release|ARM64.ActiveCfg = Release|ARM64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Release|ARM64.Build.0 = Release|ARM64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Release|ARM64.Deploy.0 = Release|ARM64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Release|x64.ActiveCfg = Release|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Release|x64.Build.0 = Release|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Release|x64.Deploy.0 = Release|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Release|x86.ActiveCfg = Release|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Release|x86.Build.0 = Release|x64
+		{BAE77E15-9878-4F82-9128-41F9B460B7BB}.Release|x86.Deploy.0 = Release|x64
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Debug|ARM64.ActiveCfg = Debug|x64
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Debug|ARM64.Build.0 = Debug|x64
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Debug|x64.ActiveCfg = Debug|x64
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Debug|x64.Build.0 = Debug|x64
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Debug|x86.ActiveCfg = Debug|Win32
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Debug|x86.Build.0 = Debug|Win32
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Release|ARM64.ActiveCfg = Release|x64
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Release|ARM64.Build.0 = Release|x64
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Release|x64.ActiveCfg = Release|x64
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Release|x64.Build.0 = Release|x64
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Release|x86.ActiveCfg = Release|Win32
+		{BEB0F18C-8DC8-48CD-8B3E-CE6A663A548E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D48D5B94-7CB7-4FDF-B3D9-32A0BC7D4BC2}
+	EndGlobalSection
+EndGlobal
