@@ -32,8 +32,8 @@ download a precompiled version here:
 
 | Binary | Download |
 |:--------|:-------|
-| Visualizer | [Visualizer.exe](https://github.com/DontCallMeLuca/Battleye-HWID-Spoofer/releases/download/v1.0/Visualizer.exe) |
-| Driver | [Battleye-HWID-Spoofer-Driver.sys](https://github.com/DontCallMeLuca/Battleye-HWID-Spoofer/releases/download/v1.0/Battleye-HWID-Spoofer-Driver.sys) |
+| Visualizer | [Visualizer.exe](https://github.com/Arty3/Battleye-HWID-Spoofer/releases/download/v1.0/Visualizer.exe) |
+| Driver | [Battleye-HWID-Spoofer-Driver.sys](https://github.com/Arty3/Battleye-HWID-Spoofer/releases/download/v1.0/Battleye-HWID-Spoofer-Driver.sys) |
 
 ----------
 
@@ -48,7 +48,7 @@ download a precompiled version here:
 2. Clone the repository:
 
 ```sh
-git clone https://github.com/DontCallMeLuca/Battleye-HWID-Spoofer.git
+git clone https://github.com/Arty3/Battleye-HWID-Spoofer.git
 ```
 
 3. Open the project:
@@ -68,7 +68,7 @@ You should find the binaries in the `x64/Release` directory.
 ## 💻 Usage
 
 You will need a vulnerable driver mapper of some kind to load the driver into kernel mode.
-Once the driver is loaded, the spoofing will have already happened. You can use the [Visualizer.exe](https://github.com/DontCallMeLuca/Battleye-HWID-Spoofer/releases/download/v1.0/Visualizer.exe) program to verify that everything was successful. Finally, you can safely start your Battleye protected game.
+Once the driver is loaded, the spoofing will have already happened. You can use the [Visualizer.exe](https://github.com/Arty3/Battleye-HWID-Spoofer/releases/download/v1.0/Visualizer.exe) program to verify that everything was successful. Finally, you can safely start your Battleye protected game.
 
 ## ✅ Proof of Concept
 
