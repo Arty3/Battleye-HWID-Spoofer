@@ -4,13 +4,14 @@
 
 ## 📝 Overview
 
-This is my own battleye HWID spoofer driver, it wipes hardware devices' serial numbers.<br>
+This is my own battleye HWID spoofer driver, it wipes hardware serial numbers.<br>
 The driver still works on both windows 10 and 11 as of writing this.
 
-However, I want to emphasize that doing this is against battleye's TOS.<br>
-I don't condone the usage of this driver, use it at your own risk.
-
-The project was made for learning purposes, not for maliscious intent.
+> ![IMPORTANT]
+> I want to emphasize that using this driver is against battleye's TOS.
+> I don't condone the usage of this driver, use it at your own risk.
+>
+> I made this project with the goal of making security-focused learning more accessible.
 
 ## ✨ Features
 
